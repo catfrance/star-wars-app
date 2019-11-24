@@ -2,4 +2,15 @@
     background-color: #fff;
     padding: 1em;
     border-radius: 10px;
+    animation: fadeIn 0.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

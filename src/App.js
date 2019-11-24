@@ -39,29 +39,30 @@ class App extends React.Component {
   }
 
   render() {
-    const title = this.state.query.search === ''? '' : 'Showing results for "' + this.state.query.search +'"'
+    var title ='';
 
     var contents;
 
     if (this.state.loading) {
-      contents='Loading...';
+      contents=null;
     }
-    else if (this.state.results.length === 0) {
+    else if (this.state.results.length === 0 && this.state.query.search !== '') {
       contents = 'No results';
     }
     else {
       //if search in films, display title
       if (this.state.query.category === 'films') {
         contents = this.state.results.map((item,key) => 
-          (<Card title={item.title} key={item.url}/>)
-        )
+          (<Card title={item.title} key={item.url} index={key}/>)
+        )  
       }
       //else display name
       else {
         contents = this.state.results.map((item,key) => 
-            (<Card title={item.name} key={item.url}/>)
+            (<Card title={item.name} key={item.url} index={key}/>)
         )
       }
+      title = this.state.query.search === ''? '' : 'Showing results for "' + this.state.query.search +'"'
     }
     
     return (
