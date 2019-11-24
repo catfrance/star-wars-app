@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from './Spinner/Spinner';
 
 class Search extends React.Component {
     constructor() {
@@ -35,7 +36,10 @@ class Search extends React.Component {
                             <option value="planets">Planets</option>
                         </select>
                     </div>
-                    <input type='submit'/>
+                    
+                    {
+                        this.props.isLoading ? <Spinner/> : <input type='submit'/>
+                    }
                 </form>
             </div>
         )

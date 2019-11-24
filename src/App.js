@@ -69,7 +69,7 @@ class App extends React.Component {
     		<div className='container'>
         		<div className="header text-center">
             		<img id="logo-img" src={StarWarsLogo} alt="Star Wars logo"/>
-            		<Search onSubmit={this.getResults}/>
+            		<Search onSubmit={this.getResults} isLoading={this.state.loading}/>
         		</div>
         		<h1>{title}</h1>
     			<div className="results">
